@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "461418839179",
+    "firebase_url": "https://acto-630a4.firebaseio.com",
+    "project_id": "acto-630a4",
+    "storage_bucket": "acto-630a4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461418839179:android:d8af3a3718f6880725e88e",
+        "android_client_info": {
+          "package_name": "com.apto.acto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461418839179-vhvaq3u0h96o348og4jok3numkrfr881.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1AUj3_SSDs9RmjCYCQKarZ7Wzz3xqQTY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "461418839179-vhvaq3u0h96o348og4jok3numkrfr881.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

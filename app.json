@@ -1,0 +1,42 @@
+{
+    "expo": {
+        "name": "ACTOV2",
+        "slug": "actov2",
+        "privacy": "public",
+        "platforms": [
+            "ios",
+            "android",
+            "web"
+        ],
+        "version": "1.0.7",
+        "orientation": "portrait",
+        "icon": "./assets/images/icon.png",
+        "splash": {
+            "image": "./assets/images/splash.png",
+            "resizeMode": "cover",
+            "backgroundColor": "#ffffff"
+        },
+        "updates": {
+            "fallbackToCacheTimeout": 0
+        },
+        "assetBundlePatterns": [
+            "**/*"
+        ],
+        "notification": {
+            "icon": "./assets/images/pushnotification_icon.png",
+            "androidMode": "default",
+            "color": "#ffffff"
+        },
+        "ios": {
+            "buildNumber": "7",
+            "supportsTablet": false,
+            "bundleIdentifier": "com.acto.seguros"
+        },
+        "android": {
+            "package": "com.acto.seguros",
+            "versionCode": 24,
+            "googleServicesFile": "./google-services.json"
+        },
+        "description": ""
+    }
+}

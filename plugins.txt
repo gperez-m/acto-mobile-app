@@ -1,0 +1,12 @@
+Linear gradient
+npm install react-native-linear-gradient --save
+https://www.npmjs.com/package/react-native-linear-gradient
+
+
+https://github.com/benhurott/react-native-masked-text/blob/master/README.md
+
+const unmasked = this.phoneField.getRawValue()
+// in the mask: (51) 98765-4321
+// unmasked: 51987654321
+
+https://github.com/benhurott/react-native-masked-text/blob/master/README.md
