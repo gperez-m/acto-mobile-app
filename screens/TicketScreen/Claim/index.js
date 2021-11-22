@@ -5,13 +5,13 @@ import {
   Text,
   View,
   Image,
-  AsyncStorage,
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
   Dimensions,
   Platform
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import RNPickerSelect from 'react-native-picker-select';
 import ShimmerLayout from '../../../components/Shimmer/shimmerLayout';
 import { PrimaryButton } from '../../../components/Buttons/PrimaryButton';
@@ -54,6 +54,7 @@ class Claim extends Component {
     this.setState({ updateData });
 
     http.get('client/claims-subject').then(res => {
+      console.log(res, 57)
       this.setState({
         dropItems: [{ subject: 'Selecciona una opción', id: 0 }, ...res],
         loadingItems: false
@@ -93,7 +94,8 @@ class Claim extends Component {
         this.props.navigation.goBack();
       })
       .catch(error => {
-        alert(error);
+        //alert(error);
+        console.error(error)
         this.setState({ isLoading: false });
       });
   }

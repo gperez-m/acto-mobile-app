@@ -1,11 +1,11 @@
 import React from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Card } from 'react-native-elements';
 import {
   Text,
   TouchableOpacity,
   View,
   Image,
-  AsyncStorage,
   FlatList,
   ActivityIndicator
 } from 'react-native';
@@ -36,11 +36,12 @@ class List extends React.Component {
             loadingInsurance: false,
             InsurancesList: result.data
           },
-          () => console.log(this.state.InsutancesList)
+          () => console.log(this.state.InsutancesList, 39)
         );
       })
       .catch(error => {
-        alert(error);
+        //alert(error);
+        console.error(error)
         this.setState({ loadingInsurance: false });
       });
   }
@@ -70,7 +71,7 @@ class List extends React.Component {
                         numberOfLines={2}
                         style={[
                           Style.cardItemTextPrice,
-                          { color: 'white', lineHeight: 12, marginTop: 2 }
+                          { color: 'white', lineHeight: 18, marginTop: 2 }
                         ]}>
                         <NumberFormat
                           value={item.product.annual_price / 12}
@@ -96,7 +97,7 @@ class List extends React.Component {
                       <View style={Style.cardItemContainerImage}>
                         <Image
                           source={{ uri: item.product.icon_url }}
-                          style={{ height: 40, width: 40, alignSelf: 'center' }}
+                          style={{ height: 60, width: 60, alignSelf: 'center' }}
                         />
                       </View>
                       <Text allowFontScaling={false} numberOfLines={2} style={Style.cardItemName}>
@@ -137,7 +138,7 @@ List.navigationOptions = {
         alignItems: 'center',
         marginLeft: 0
       }}>
-      <Text allowFontScaling={false} style={{ color: 'white', fontSize: 17, paddingLeft: 5 }}>
+      <Text allowFontScaling={false} style={{ color: 'white', fontSize: 17 }}>
         Comprar suscripciones
       </Text>
     </View>

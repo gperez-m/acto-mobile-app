@@ -7,9 +7,9 @@ import {
   Keyboard,
   ScrollView,
   Alert,
-  AsyncStorage,
   Switch
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Text } from 'react-native-elements';
 import { PrimaryButton } from '../../../components/Buttons/PrimaryButton';
 import TextField from '../../../components/Inputs/TextField';
@@ -62,7 +62,8 @@ class form extends React.Component {
         });
       })
       .catch(error => {
-        alert(error);
+        //alert(error);
+        console.error(error)
         this.setState({ loading: false });
       });
   }
@@ -143,7 +144,8 @@ class form extends React.Component {
       });
       this.props.navigation.navigate('Profile');
     } catch (error) {
-      alert(error);
+      //alert(error);
+      console.error(error)
       this.setState({ loadingBtn: false });
     }
   }

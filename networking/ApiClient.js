@@ -1,4 +1,4 @@
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import queryString from 'query-string';
 import Constants from '../constants/Variables';
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Card, ThemeConsumer } from 'react-native-elements';
 import * as Permissions from 'expo-permissions';
-import { Notifications } from 'expo';
-import { StackActions, NavigationActions } from 'react-navigation';
+import * as Notifications from 'expo-notifications'
+import { StackActions, NavigationActions, ScrollView } from 'react-navigation';
 import {
   Platform,
   StyleSheet,
@@ -10,11 +10,11 @@ import {
   TouchableOpacity,
   View,
   Image,
-  AsyncStorage,
   alert,
   ActivityIndicator,
   Dimensions
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import dayjs from 'dayjs';
 import { TransparentButton } from '../../components/Buttons/TransparentButton';
 import { http } from '../../networking/ApiClient';
@@ -55,9 +55,9 @@ class HomeScreen extends React.Component {
     const uuid = await AsyncStorage.getItem('uuid');
     const company = await AsyncStorage.getItem('company_logo');
     const tokenExpo = await AsyncStorage.getItem('expoToken');
-    console.log('-----------------------------------');
-    console.log(`---------${Math.round(Dimensions.get('window').height)}---------`);
+    console.log(`---------${Math.round(Dimensions.get('window').height)}---------`, 59);
     this.setState({ company_logo: company });
+    console.log(`client/${uuid}/products/voluntary`, 60)
     http
       .get(`client/${uuid}/products/voluntary`)
       .then(result => {
@@ -66,14 +66,15 @@ class HomeScreen extends React.Component {
           // InsutancesList: result.data.slice(0, 3)
           InsurancesListFinal: result.data
         });
-        console.log('----------- compoenet -------', componentHeight);
+        console.log('----------- compoenet -------',69, componentHeight);
       })
       .catch(error => {
-        alert(error);
+        //alert(error);
+        console.error(error, 73)
         this.setState({ loadingInsurance: false });
       });
     this.getVoluntaryPolicies(uuid);
-    console.log('aqui', tokenExpo);
+    console.log('aqui', 77, tokenExpo);
     if (tokenExpo != null || tokenExpo != undefined) {
     } else {
       this.registerForPushNotificationsAsync();
@@ -107,6 +108,7 @@ class HomeScreen extends React.Component {
     };
 
     this.setState({ loadingNotification: true });
+    console.log(form)
     http
       .post('setToken/firebase', form)
       .then(result => {
@@ -114,7 +116,7 @@ class HomeScreen extends React.Component {
         this.setToken(token);
       })
       .catch(error => {
-        console.log(error);
+        console.log(error, 118);
         this.setState({ loadingNotification: true });
       });
   };
@@ -128,19 +130,19 @@ class HomeScreen extends React.Component {
     this.setState({ componentHeight: event.nativeEvent.layout.height });
     let counter = 0;
     Object.keys(InsurancesListFinal).forEach(function(key) {
-      if (counter * 135 <= event.nativeEvent.layout.height) {
+      if (counter * 195 <= event.nativeEvent.layout.height) {
         counter += 1;
       }
     });
-
+console.log(counter, 136)
     this.setState({ InsutancesList: InsurancesListFinal.slice(0, counter) });
-    console.log('entrooooooooooooooooo', event.nativeEvent.layout.height);
+    console.log('entrooooooooooooooooo',138, event.nativeEvent.layout.height);
   }
 
   handleNotification = notification => {
     const { origin } = notification;
     const { id, subject, created_at, client_id, uuid } = notification.data;
-    console.log('entro');
+    console.log('entro', 144);
     if (origin === 'selected') {
       const navigateAction = StackActions.reset({
         index: 1,
@@ -175,12 +177,14 @@ class HomeScreen extends React.Component {
             myPoliciesObj: result
           },
           () => {
-            // this.getCompanyPolicies(uuid, result.data.length);
+            console.log(this.state.myPolicies, 179)
+            //this.getCompanyPolicies(uuid, result.data.length);
           }
         );
       })
       .catch(error => {
-        alert(error);
+        //alert(error);
+        console.error(error, 185)
         this.setState({ loadingMyPolicies: false });
       });
   }
@@ -197,11 +201,12 @@ class HomeScreen extends React.Component {
             myPolicies: counter,
             myPoliciesObj: myPoliciesObj.length > 0 ? myPoliciesObj : result.data
           },
-          () => console.log(this.state.myPoliciesObj)
+          () => console.log(this.state.myPoliciesObj, 202)
         );
       })
       .catch(error => {
-        alert(error);
+        //alert(error);
+        console.error(error, 207)
         this.setState({ loadingMyPolicies: false });
       });
   }
@@ -218,7 +223,7 @@ class HomeScreen extends React.Component {
       InsurancesListFinal
     } = this.state;
 
-    console.log('producto', myPoliciesObj);
+    console.log('producto',224, myPoliciesObj);
     return (
       <View style={styles.container}>
         <View style={Style.containerCardParent}>
@@ -460,6 +465,7 @@ class HomeScreen extends React.Component {
                 </View>
                 {InsurancesListFinal.length > 0 ? (
                   <View style={{ flex: 5 }} onLayout={this.onLayoutEvent}>
+                    <ScrollView >
                     {InsutancesList.map(l => (
                       <View key={l.id} style={{ justifyContent: 'center' }}>
                         <Card
@@ -480,12 +486,12 @@ class HomeScreen extends React.Component {
                               style={{ textAlign: 'center', color: 'white' }}>
                               {l.custom_name != null ? l.custom_name : l.product.name}
                             </Text>
-                            <View style={{ alignSelf: 'center', marginTop: 5 }}>
+                            <View style={{ alignSelf: 'center'}}>
                               <Image
                                 source={{ uri: l.product.icon_url }}
                                 style={{
-                                  height: 30,
-                                  width: 30,
+                                  width: 80,
+                                  height: 80,
                                   alignSelf: 'center'
                                 }}
                               />
@@ -494,9 +500,9 @@ class HomeScreen extends React.Component {
                         </Card>
                       </View>
                     ))}
+                    </ScrollView>
                     <View
                       style={{
-                        position: 'absolute',
                         bottom: 0,
                         left: -5,
                         right: -5

@@ -3,11 +3,11 @@ import {
   Text,
   View,
   Image,
-  AsyncStorage,
   FlatList,
   ScrollView,
   TouchableOpacity
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import PropTypes from 'prop-types';
 import ShimmerLayout from '../../components/Shimmer/shimmerLayout';
 import { http } from '../../networking/ApiClient';

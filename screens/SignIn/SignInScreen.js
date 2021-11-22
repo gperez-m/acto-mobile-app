@@ -6,7 +6,6 @@ import {
   KeyboardAvoidingView,
   Keyboard,
   ScrollView,
-  AsyncStorage,
   Dimensions,
   Platform
 } from 'react-native';
@@ -16,6 +15,7 @@ import { SecondaryButton } from '../../components/Buttons/SecondaryButton';
 import { TransparentButton } from '../../components/Buttons/TransparentButton';
 import TextField from '../../components/Inputs/TextField';
 import { http } from '../../networking/ApiClient';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Style from './styles';
 import Colors from '../../constants/Colors';
@@ -51,8 +51,6 @@ class SignInScreen extends React.Component {
   // http://kimeowgee.com/2018/10/react-native-user-login-sign-up-example-tutorial/
   async _signInAsync() {
     const { email, password, email_valid } = this.state;
-    // await AsyncStorage.setItem('token', 'abc');
-    // this.props.navigation.navigate('App');
     Keyboard.dismiss();
     this.setState({
       email_valid: this.validateEmail(email),
@@ -69,17 +67,20 @@ class SignInScreen extends React.Component {
         const result = await http.post('login', formData);
         this.setState({ loadingBtn: false });
         if (result.user.rol_id == 3) {
+          console.log(result.access_token,result.user.uuid, result.user.company.uuid, result.user.company.photo_url);
           await AsyncStorage.setItem('token', result.access_token);
           await AsyncStorage.setItem('uuid', result.user.uuid);
           await AsyncStorage.setItem('company_uuid', result.user.company.uuid);
           await AsyncStorage.setItem('company_logo', result.user.company.photo_url);
-          console.log(result.user.company.uuid);
           this.props.navigation.navigate('App');
+        } else if(result.user) {
+          alert('El usuario ingresado no cuenta con los permisos suficientes');
         } else {
-          alert('Accesos restringidos');
+          alert('Verique los datos ingresados');
         }
       } catch (error) {
-        alert(error);
+        //alert(error);
+        console.error(error, 83)
         this.setState({ loadingBtn: false });
       }
     }

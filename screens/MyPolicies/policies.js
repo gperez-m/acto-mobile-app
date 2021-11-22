@@ -7,7 +7,6 @@ import {
   Text,
   View,
   Image,
-  AsyncStorage,
   FlatList,
   ActivityIndicator,
   ScrollView,
@@ -17,6 +16,7 @@ import {
   Share,
   Alert
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { WebView } from 'react-native-webview';
 import * as FileSystem from 'expo-file-system';
 import { HeaderBackButton } from 'react-navigation';
@@ -102,7 +102,8 @@ class policies extends React.Component {
         );
       })
       .catch(error => {
-        alert(error);
+        //alert(error);
+        console.error(error)
         this.setState({ loading: false });
       });
 
@@ -125,7 +126,8 @@ class policies extends React.Component {
         );
       })
       .catch(error => {
-        alert(error);
+        //alert(error);
+        console.error(error)
         this.setState({ loading: false });
       });
 
@@ -256,7 +258,8 @@ class policies extends React.Component {
                 );
               })
               .catch(error => {
-                alert(error);
+                //alert(error);
+                console.error(error)
                 this.setState({ loading: false });
               });
           }
@@ -306,7 +309,8 @@ class policies extends React.Component {
         });
       })
       .catch(error => {
-        alert(error);
+        //alert(error);
+        console.error(error)
         this.setState({ loadingVoluntary: false });
         this.setState({ loading: false });
       });

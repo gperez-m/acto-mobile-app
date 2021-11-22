@@ -3,7 +3,6 @@ import {
   Text,
   View,
   Image,
-  AsyncStorage,
   ActivityIndicator,
   ScrollView,
   Share,
@@ -11,6 +10,7 @@ import {
   TouchableOpacity,
   Alert
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { WebView } from 'react-native-webview';
 import NumberFormat from 'react-number-format';
 import dayjs from 'dayjs';
@@ -137,7 +137,8 @@ class OrderDetailSubsScreen extends React.Component {
         });
       })
       .catch(error => {
-        alert(error);
+        //alert(error);
+        console.error(error)
         this.setState({ loadingOrder: false });
       });
   }
@@ -159,7 +160,8 @@ class OrderDetailSubsScreen extends React.Component {
         });
       })
       .catch(error => {
-        alert(error);
+        //alert(error);
+        console.error(error)
         this.setState({ loadingOrder: false });
       });
   }

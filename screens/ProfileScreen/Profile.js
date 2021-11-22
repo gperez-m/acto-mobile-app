@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, View, Image, AsyncStorage, TouchableOpacity, Alert, ScrollView } from 'react-native';
+import { Text, View, Image, TouchableOpacity, Alert, ScrollView } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Personal from '../../components/profile/personal';
 import ListOrders from '../../components/TableView/List';
 import ShimmerLayout from '../../components/Shimmer/shimmerLayout';
@@ -153,7 +154,8 @@ class Profile extends React.Component {
         });
       })
       .catch(error => {
-        alert(error);
+        //alert(error);
+        console.error(error)
         this.setState({ loadingProfile: false });
       });
 
@@ -174,7 +176,8 @@ class Profile extends React.Component {
         );
       })
       .catch(error => {
-        alert(error);
+        //alert(error);
+        console.error(error)
         this.setState({ loadingHistory: false });
       });
   }
@@ -192,7 +195,8 @@ class Profile extends React.Component {
         );
       })
       .catch(error => {
-        alert(error);
+        //alert(error);
+        console.error(error)
         this.setState({ loadingSuscrib: false });
       });
   }

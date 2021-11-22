@@ -12,7 +12,7 @@ const style = StyleSheet.create({
     flexDirection: 'column'
   },
   flatCardItem: {
-    height: 200,
+    height: Dimensions.get('window').height / 4,
     width: Dimensions.get('window').width / 2.2,
     flex: 0.5,
     borderRadius: 15,

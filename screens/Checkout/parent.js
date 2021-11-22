@@ -5,12 +5,12 @@ import {
   Keyboard,
   ScrollView,
   TouchableOpacity,
-  AsyncStorage,
   ActivityIndicator,
   KeyboardAvoidingView,
   BackHandler,
   Alert
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { WebView } from 'react-native-webview';
 import { HeaderBackButton } from 'react-navigation';
 import { PaymentsStripe as Stripe } from 'expo-payments-stripe';
@@ -149,7 +149,8 @@ class parent extends React.Component {
         });
       })
       .catch(error => {
-        alert(error);
+        //alert(error);
+        console.error(error);
         this.setState({ loadingMe: false });
       });
   }
@@ -317,7 +318,8 @@ class parent extends React.Component {
         })
 
         .catch(error => {
-          alert(error);
+          //alert(error);
+          console.error(error)
           this.setState({ loadingBtn: false });
         });
     } else {
@@ -340,7 +342,8 @@ class parent extends React.Component {
         })
 
         .catch(error => {
-          alert(error);
+          // alert(error);
+          console.log(error)
           this.setState({ loadingBtn: false });
         });
     }

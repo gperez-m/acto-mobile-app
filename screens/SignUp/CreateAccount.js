@@ -159,6 +159,7 @@ class CreateAccount extends React.Component {
         this.props.navigation.navigate('SignIn');
       } catch (error) {
         alert(error);
+        console.error(error)
         this.setState({ loadingBtn: false });
       }
     } else {

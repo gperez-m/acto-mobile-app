@@ -3,7 +3,6 @@ import {
   Text,
   View,
   Image,
-  AsyncStorage,
   FlatList,
   ScrollView,
   TouchableOpacity,
@@ -123,7 +122,8 @@ class updateMethod extends Component {
         );
       })
       .catch(error => {
-        alert(error);
+        //alert(error);
+        console.error(error)
         this.setState({ isLoading: false });
       });
   }

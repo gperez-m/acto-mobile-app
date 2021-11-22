@@ -9,13 +9,13 @@ import {
   Keyboard,
   Alert,
   TextInput,
-  AsyncStorage,
   TouchableOpacity,
   FlatList,
   KeyboardAvoidingView,
   Platform,
   ActivityIndicator
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { showDate } from '../../../utils/data';
 import { http } from '../../../networking/ApiClient';
@@ -69,7 +69,8 @@ class Chat extends Component {
         console.log(result);
       })
       .catch(error => {
-        Alert(error);
+        //Alert(error);
+        console.error(error)
         this.setState({ isLoading: false });
       });
   }
@@ -99,7 +100,8 @@ class Chat extends Component {
         this.getComments();
       })
       .catch(error => {
-        alert(error);
+        //alert(error);
+        console.error(error)
         this.setState({ isLoadingComment: false });
       });
   }

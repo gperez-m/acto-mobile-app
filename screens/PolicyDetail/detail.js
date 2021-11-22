@@ -3,7 +3,6 @@ import {
   Text,
   View,
   Image,
-  AsyncStorage,
   ActivityIndicator,
   ScrollView,
   BackHandler,
@@ -11,6 +10,7 @@ import {
   Alert,
   TouchableOpacity
 } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { WebView } from 'react-native-webview';
 import { Card } from 'react-native-elements';
 import * as FileSystem from 'expo-file-system';
@@ -137,7 +137,7 @@ class detail extends React.Component {
       .get(`client/${uuid}/products/${policyId}`)
       .then(result => {
         console.log('--------------DETAIL--------------');
-        console.log(result);
+        console.log(result, 140);
         this.setState(
           {
             loadingInsurance: false,
@@ -147,7 +147,8 @@ class detail extends React.Component {
         );
       })
       .catch(error => {
-        alert(error);
+        //alert(error);
+        console.error(error)
         this.setState({ loadingInsurance: false });
       });
   }
@@ -296,7 +297,7 @@ class detail extends React.Component {
                   {policy.photo_url != null && (
                     <Image
                       source={{ uri: policy.photo_url }}
-                      style={[Style.coverPolicyImg, Style.mt40]}
+                      style={[Style.coverPolicyImg, Style.mt10]}
                     />
                   )}
                 </View>
@@ -404,7 +405,7 @@ class detail extends React.Component {
                       anual
                       only={policy.plan_id == null}
                       priceColor={Colors.primaryColorLight}
-                      monthPrice={policy.annual_price / 12}
+                      monthPrice={policy.annual_price %12 === 0 ? (policy.annual_price / 12) : (policy.annual_price / 12).toFixed(2)}
                       anualPrice={policy.annual_price}
                       description="*Pago en un sola exhibición"
                       firstDescription="UN SOLO PAGO DE "
