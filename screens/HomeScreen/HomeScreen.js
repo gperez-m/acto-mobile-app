@@ -117,7 +117,7 @@ class HomeScreen extends React.Component {
       })
       .catch(error => {
         console.log(error, 118);
-        this.setState({ loadingNotification: true });
+        this.setState({ loadingNotification: false });
       });
   };
 
