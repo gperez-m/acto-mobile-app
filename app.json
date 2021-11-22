@@ -1,18 +1,18 @@
 {
     "expo": {
-        "name": "ACTO Colectivos",
-        "slug": "acto_colectivos",
+        "name": "ACTOV2",
+        "slug": "actov2",
         "privacy": "public",
         "platforms": [
             "ios",
             "android",
             "web"
         ],
-        "version": "1.0.0",
+        "version": "1.0.8",
         "orientation": "portrait",
         "icon": "./assets/images/icon.png",
         "splash": {
-            "image": "./assets/images/splash.png",
+            "image": "./assets/images/splash.jpg",
             "resizeMode": "cover",
             "backgroundColor": "#ffffff"
         },
@@ -28,12 +28,12 @@
             "color": "#ffffff"
         },
         "ios": {
-            "buildNumber": "1",
+            "buildNumber": "11",
             "supportsTablet": false,
-            "bundleIdentifier": "com.acto.seguros.colectivos"
+            "bundleIdentifier": "com.acto.seguros"
         },
         "android": {
-            "package": "com.acto.seguros.colectivos",
+            "package": "com.acto.seguros",
             "versionCode": 0
         },
         "description": ""
