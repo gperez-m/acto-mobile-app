@@ -1,7 +1,7 @@
 {
     "expo": {
-        "name": "ACTO Membresias",
-        "slug": "acto membresias",
+        "name": "ACTO Membresías",
+        "slug": "acto_membresias",
         "privacy": "public",
         "platforms": [
             "ios",
