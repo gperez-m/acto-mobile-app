@@ -108,7 +108,7 @@ class HomeScreen extends React.Component {
     };
 
     this.setState({ loadingNotification: true });
-    console.log(form)
+    console.log(form, 111)
     http
       .post('setToken/firebase', form)
       .then(result => {
@@ -177,14 +177,14 @@ console.log(counter, 136)
             myPoliciesObj: result
           },
           () => {
-            console.log(this.state.myPolicies, 179)
+            console.log(this.state.myPolicies, 180)
             //this.getCompanyPolicies(uuid, result.data.length);
           }
         );
       })
       .catch(error => {
         //alert(error);
-        console.error(error, 185)
+        console.error(error, 187)
         this.setState({ loadingMyPolicies: false });
       });
   }
@@ -367,8 +367,9 @@ console.log(counter, 136)
                                         uri: myPoliciesObj[0].icon
                                       }}
                                       style={{
-                                        height: 65,
-                                        width: 65,
+                                        borderRadius: 5,
+                                        height: 220,
+                                        width: 110,
                                         alignSelf: 'center'
                                       }}
                                     />
@@ -490,8 +491,8 @@ console.log(counter, 136)
                               <Image
                                 source={{ uri: l.product.icon_url }}
                                 style={{
-                                  width: 80,
-                                  height: 80,
+                                  width: 90,
+                                  height: 90,
                                   alignSelf: 'center'
                                 }}
                               />

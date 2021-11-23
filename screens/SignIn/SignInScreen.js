@@ -67,7 +67,6 @@ class SignInScreen extends React.Component {
         const result = await http.post('login', formData);
         this.setState({ loadingBtn: false });
         if (result.user.rol_id == 3) {
-          console.log(result.access_token,result.user.uuid, result.user.company.uuid, result.user.company.photo_url);
           await AsyncStorage.setItem('token', result.access_token);
           await AsyncStorage.setItem('uuid', result.user.uuid);
           await AsyncStorage.setItem('company_uuid', result.user.company.uuid);

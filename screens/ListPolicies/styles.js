@@ -40,12 +40,12 @@ const style = StyleSheet.create({
   },
   cardItemName: {
     textAlign: 'center',
-    marginTop: 20,
+    marginTop: 10,
     fontWeight: '500'
   },
   cardItemDescription: {
     textAlign: 'center',
-    marginTop: 10,
+    marginTop: 5,
     color: Colors.textGrayColor
   }
 });
