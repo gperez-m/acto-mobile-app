@@ -7,7 +7,8 @@ import {
   Keyboard,
   ScrollView,
   Dimensions,
-  Platform
+  Platform,
+  Alert
 } from 'react-native';
 import { Text } from 'react-native-elements';
 import { PrimaryButton } from '../../components/Buttons/PrimaryButton';
@@ -78,8 +79,7 @@ class SignInScreen extends React.Component {
           alert('Verique los datos ingresados');
         }
       } catch (error) {
-        //alert(error);
-        console.error(error, 83)
+        Alert.alert('Atencion !', error);
         this.setState({ loadingBtn: false });
       }
     }
