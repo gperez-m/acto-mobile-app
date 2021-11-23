@@ -117,7 +117,7 @@ class HomeScreen extends React.Component {
       })
       .catch(error => {
         console.log(error, 118);
-        this.setState({ loadingNotification: true });
+        this.setState({ loadingNotification: false });
       });
   };
 
@@ -490,8 +490,8 @@ console.log(counter, 136)
                               <Image
                                 source={{ uri: l.product.icon_url }}
                                 style={{
-                                  width: 80,
-                                  height: 80,
+                                  width: 90,
+                                  height: 90,
                                   alignSelf: 'center'
                                 }}
                               />

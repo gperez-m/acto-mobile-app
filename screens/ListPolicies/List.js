@@ -97,7 +97,7 @@ class List extends React.Component {
                       <View style={Style.cardItemContainerImage}>
                         <Image
                           source={{ uri: item.product.icon_url }}
-                          style={{ height: 60, width: 60, alignSelf: 'center' }}
+                          style={{ height: 100, width: 100, alignSelf: 'center' }}
                         />
                       </View>
                       <Text allowFontScaling={false} numberOfLines={2} style={Style.cardItemName}>
