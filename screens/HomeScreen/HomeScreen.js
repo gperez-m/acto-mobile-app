@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   View,
   Image,
-  alert,
+  Alert,
   ActivityIndicator,
   Dimensions
 } from 'react-native';
@@ -69,8 +69,7 @@ class HomeScreen extends React.Component {
         console.log('----------- compoenet -------',69, componentHeight);
       })
       .catch(error => {
-        //alert(error);
-        console.error(error, 73)
+        Alert.alert('Atención !', error);
         this.setState({ loadingInsurance: false });
       });
     this.getVoluntaryPolicies(uuid);
@@ -183,8 +182,7 @@ console.log(counter, 136)
         );
       })
       .catch(error => {
-        //alert(error);
-        console.error(error, 187)
+        Alert.alert('Atención !', error);
         this.setState({ loadingMyPolicies: false });
       });
   }
@@ -205,8 +203,7 @@ console.log(counter, 136)
         );
       })
       .catch(error => {
-        //alert(error);
-        console.error(error, 207)
+        Alert.alert('Atención !', error);
         this.setState({ loadingMyPolicies: false });
       });
   }

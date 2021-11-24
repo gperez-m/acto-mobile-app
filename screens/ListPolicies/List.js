@@ -40,8 +40,7 @@ class List extends React.Component {
         );
       })
       .catch(error => {
-        //alert(error);
-        console.error(error)
+        Alert.alert('Atención !', error);
         this.setState({ loadingInsurance: false });
       });
   }

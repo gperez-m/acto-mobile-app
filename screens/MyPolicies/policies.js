@@ -10,7 +10,6 @@ import {
   FlatList,
   ActivityIndicator,
   ScrollView,
-  alert,
   TouchableOpacity,
   BackHandler,
   Share,
@@ -102,8 +101,7 @@ class policies extends React.Component {
         );
       })
       .catch(error => {
-        //alert(error);
-        console.error(error)
+        Alert.alert('Atención !', error);
         this.setState({ loading: false });
       });
 
@@ -126,8 +124,7 @@ class policies extends React.Component {
         );
       })
       .catch(error => {
-        //alert(error);
-        console.error(error)
+        Alert.alert('Atención !', error);
         this.setState({ loading: false });
       });
 
@@ -258,8 +255,7 @@ class policies extends React.Component {
                 );
               })
               .catch(error => {
-                //alert(error);
-                console.error(error)
+                Alert.alert('Atención !', error);
                 this.setState({ loading: false });
               });
           }
@@ -290,7 +286,7 @@ class policies extends React.Component {
         );
       })
       .catch(error => {
-        // alert(error);
+        Alert.alert('Atención !', error);
         console.log('--------------ERROR----------', error);
         this.setState({ loadingVoluntary: false });
         this.setState({ loading: false });
@@ -309,8 +305,7 @@ class policies extends React.Component {
         });
       })
       .catch(error => {
-        //alert(error);
-        console.error(error)
+        Alert.alert('Atención !', error);
         this.setState({ loadingVoluntary: false });
         this.setState({ loading: false });
       });

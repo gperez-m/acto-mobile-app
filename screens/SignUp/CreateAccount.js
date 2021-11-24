@@ -155,15 +155,14 @@ class CreateAccount extends React.Component {
       try {
         const result = await http.post('client/register', formData);
         this.setState({ loadingBtn: false });
-        alert(result.msg);
+        Alert.alert('Atención !', result.msg);
         this.props.navigation.navigate('SignIn');
       } catch (error) {
-        alert(error);
-        console.error(error)
+        Alert.alert('Atencion !', error);
         this.setState({ loadingBtn: false });
       }
     } else {
-      alert('Por favor llene todos los campos');
+      Alert.alert('Atencion !', 'Por favor llene todos los campos');
       this.setState({ loadingBtn: false });
     }
   }

@@ -62,8 +62,7 @@ class form extends React.Component {
         });
       })
       .catch(error => {
-        //alert(error);
-        console.error(error)
+        Alert.alert('Atención !', error);
         this.setState({ loading: false });
       });
   }
@@ -144,8 +143,7 @@ class form extends React.Component {
       });
       this.props.navigation.navigate('Profile');
     } catch (error) {
-      //alert(error);
-      console.error(error)
+      Alert.alert('Atención !', error);
       this.setState({ loadingBtn: false });
     }
   }

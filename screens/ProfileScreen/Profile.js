@@ -154,8 +154,7 @@ class Profile extends React.Component {
         });
       })
       .catch(error => {
-        //alert(error);
-        console.error(error)
+        Alert.alert('Atención !', error);
         this.setState({ loadingProfile: false });
       });
 
@@ -176,8 +175,7 @@ class Profile extends React.Component {
         );
       })
       .catch(error => {
-        //alert(error);
-        console.error(error)
+        Alert.alert('Atención !', error);
         this.setState({ loadingHistory: false });
       });
   }
@@ -195,8 +193,7 @@ class Profile extends React.Component {
         );
       })
       .catch(error => {
-        //alert(error);
-        console.error(error)
+        Alert.alert('Atención !', error);
         this.setState({ loadingSuscrib: false });
       });
   }
