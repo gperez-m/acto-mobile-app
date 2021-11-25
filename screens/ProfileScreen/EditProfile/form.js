@@ -259,7 +259,7 @@ class form extends React.Component {
                 value={showPassword}
                 onValueChange={() => this.onChangeCheckbox()}
               />
-              <Text allowFontScaling={false} style={{ marginLeft: 5 }}>Actualizar constraseña</Text>
+              <Text allowFontScaling={false} style={{ marginLeft: 5 }}>Actualizar contraseña</Text>
             </View>
             {showPassword && (
               <View style={{ width: '100%' }}>
