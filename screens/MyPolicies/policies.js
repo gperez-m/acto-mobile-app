@@ -406,7 +406,7 @@ class policies extends React.Component {
         />
       </View>
     ) : (
-      <View style={Style.container}>
+      <View key={0} style={Style.container}>
         {!loading ? (
           <ScrollView showsVerticalScrollIndicator={false}>
             <View>

@@ -55,9 +55,9 @@ class HomeScreen extends React.Component {
     const uuid = await AsyncStorage.getItem('uuid');
     const company = await AsyncStorage.getItem('company_logo');
     const tokenExpo = await AsyncStorage.getItem('expoToken');
-    console.log(`---------${Math.round(Dimensions.get('window').height)}---------`, 59);
+    // console.log(`---------${Math.round(Dimensions.get('window').height)}---------`, 59);
     this.setState({ company_logo: company });
-    console.log(`client/${uuid}/products/voluntary`, 60)
+    // console.log(`client/${uuid}/products/voluntary`, 60)
     http
       .get(`client/${uuid}/products/voluntary`)
       .then(result => {
@@ -66,19 +66,19 @@ class HomeScreen extends React.Component {
           // InsutancesList: result.data.slice(0, 3)
           InsurancesListFinal: result.data
         });
-        console.log('----------- compoenet -------',69, componentHeight);
+        // console.log('----------- compoenet -------',69, componentHeight);
       })
       .catch(error => {
         Alert.alert('Atención !', error);
         this.setState({ loadingInsurance: false });
       });
     this.getVoluntaryPolicies(uuid);
-    console.log('aqui', 77, tokenExpo);
+    // console.log('aqui', 77, tokenExpo);
     if (tokenExpo != null || tokenExpo != undefined) {
     } else {
       this.registerForPushNotificationsAsync();
     }
-    this.notificationSubscription = Notifications.addListener(this.handleNotification);
+    this.notificationSubscription = Notifications.addEventListener(this.handleNotification);
   }
 
   registerForPushNotificationsAsync = async currentUser => {
@@ -102,21 +102,20 @@ class HomeScreen extends React.Component {
     // Get the token that uniquely identifies this device
     const token = await Notifications.getExpoPushTokenAsync();
     const form = {
-      token_firebase: token,
+      token_firebase: token.data,
       type: Platform.OS === 'ios' ? 'IOS' : 'ANDROID'
     };
 
     this.setState({ loadingNotification: true });
-    console.log(form, 111)
     http
       .post('setToken/firebase', form)
       .then(result => {
         this.setState({ loadingNotification: false });
-        this.setToken(token);
+        this.setToken(token.data);
       })
       .catch(error => {
-        console.log(error, 118);
-        this.setState({ loadingNotification: false });
+        Alert.alert('Advertencia !' ,error)
+        this.setState({ loadingNotification: true });
       });
   };
 
@@ -133,15 +132,15 @@ class HomeScreen extends React.Component {
         counter += 1;
       }
     });
-console.log(counter, 136)
+    //console.log(counter, 136)
     this.setState({ InsutancesList: InsurancesListFinal.slice(0, counter) });
-    console.log('entrooooooooooooooooo',138, event.nativeEvent.layout.height);
+    //console.log('entrooooooooooooooooo',138, event.nativeEvent.layout.height);
   }
 
   handleNotification = notification => {
     const { origin } = notification;
     const { id, subject, created_at, client_id, uuid } = notification.data;
-    console.log('entro', 144);
+    //console.log('entro', 144);
     if (origin === 'selected') {
       const navigateAction = StackActions.reset({
         index: 1,
@@ -220,7 +219,7 @@ console.log(counter, 136)
       InsurancesListFinal
     } = this.state;
 
-    console.log('producto',224, myPoliciesObj);
+    //console.log('producto',224, myPoliciesObj);
     return (
       <View style={styles.container}>
         <View style={Style.containerCardParent}>
