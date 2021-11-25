@@ -55,9 +55,9 @@ class HomeScreen extends React.Component {
     const uuid = await AsyncStorage.getItem('uuid');
     const company = await AsyncStorage.getItem('company_logo');
     const tokenExpo = await AsyncStorage.getItem('expoToken');
-    console.log(`---------${Math.round(Dimensions.get('window').height)}---------`, 59);
+    // console.log(`---------${Math.round(Dimensions.get('window').height)}---------`, 59);
     this.setState({ company_logo: company });
-    console.log(`client/${uuid}/products/voluntary`, 60)
+    // console.log(`client/${uuid}/products/voluntary`, 60)
     http
       .get(`client/${uuid}/products/voluntary`)
       .then(result => {
@@ -66,19 +66,19 @@ class HomeScreen extends React.Component {
           // InsutancesList: result.data.slice(0, 3)
           InsurancesListFinal: result.data
         });
-        console.log('----------- compoenet -------',69, componentHeight);
+        // console.log('----------- compoenet -------',69, componentHeight);
       })
       .catch(error => {
         Alert.alert('Atención !', error);
         this.setState({ loadingInsurance: false });
       });
     this.getVoluntaryPolicies(uuid);
-    console.log('aqui', 77, tokenExpo);
+    // console.log('aqui', 77, tokenExpo);
     if (tokenExpo != null || tokenExpo != undefined) {
     } else {
       this.registerForPushNotificationsAsync();
     }
-    this.notificationSubscription = Notifications.addListener(this.handleNotification);
+    this.notificationSubscription = Notifications.addEventListener(this.handleNotification);
   }
 
   registerForPushNotificationsAsync = async currentUser => {
@@ -111,7 +111,7 @@ class HomeScreen extends React.Component {
       .post('setToken/firebase', form)
       .then(result => {
         this.setState({ loadingNotification: false });
-        this.setToken(token);
+        this.setToken(token.data);
       })
       .catch(error => {
         Alert.alert(error)
