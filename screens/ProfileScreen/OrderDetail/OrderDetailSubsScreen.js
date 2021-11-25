@@ -137,8 +137,7 @@ class OrderDetailSubsScreen extends React.Component {
         });
       })
       .catch(error => {
-        //alert(error);
-        console.error(error)
+        Alert.alert('Atención !', error);
         this.setState({ loadingOrder: false });
       });
   }
@@ -160,8 +159,7 @@ class OrderDetailSubsScreen extends React.Component {
         });
       })
       .catch(error => {
-        //alert(error);
-        console.error(error)
+        Alert.alert('Atención !', error);
         this.setState({ loadingOrder: false });
       });
   }
@@ -284,7 +282,7 @@ class OrderDetailSubsScreen extends React.Component {
           );
         })
         .catch(error => {
-          console.error(error);
+          Alert.alert('Atención !', error);
         });
     }
   }

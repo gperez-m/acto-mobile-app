@@ -147,8 +147,7 @@ class detail extends React.Component {
         );
       })
       .catch(error => {
-        //alert(error);
-        console.error(error)
+        Alert.alert('Atención !', error);
         this.setState({ loadingInsurance: false });
       });
   }
@@ -199,7 +198,7 @@ class detail extends React.Component {
           );
         })
         .catch(error => {
-          console.error(error);
+          Alert.alert('Atención !', error);
         });
     }
   }
@@ -371,7 +370,7 @@ class detail extends React.Component {
                   />
                 </View>
               </View>
-              <View
+              {/*<View
                 style={{
                   backgroundColor: '#ebebeb',
                   width: '100%',
@@ -441,6 +440,7 @@ class detail extends React.Component {
                     )}
                 </View>
               </View>
+                      */}
 
               <View style={Style.mt10}>
                 <View style={Style.centerItems}>

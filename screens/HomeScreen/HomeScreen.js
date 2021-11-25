@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   View,
   Image,
-  alert,
+  Alert,
   ActivityIndicator,
   Dimensions
 } from 'react-native';
@@ -69,8 +69,7 @@ class HomeScreen extends React.Component {
         console.log('----------- compoenet -------',69, componentHeight);
       })
       .catch(error => {
-        //alert(error);
-        console.error(error, 73)
+        Alert.alert('Atención !', error);
         this.setState({ loadingInsurance: false });
       });
     this.getVoluntaryPolicies(uuid);
@@ -103,12 +102,11 @@ class HomeScreen extends React.Component {
     // Get the token that uniquely identifies this device
     const token = await Notifications.getExpoPushTokenAsync();
     const form = {
-      token_firebase: token,
+      token_firebase: token.data,
       type: Platform.OS === 'ios' ? 'IOS' : 'ANDROID'
     };
 
     this.setState({ loadingNotification: true });
-    console.log(form)
     http
       .post('setToken/firebase', form)
       .then(result => {
@@ -116,8 +114,8 @@ class HomeScreen extends React.Component {
         this.setToken(token);
       })
       .catch(error => {
-        console.log(error, 118);
-        this.setState({ loadingNotification: false });
+        Alert.alert(error)
+        this.setState({ loadingNotification: true });
       });
   };
 
@@ -134,15 +132,15 @@ class HomeScreen extends React.Component {
         counter += 1;
       }
     });
-console.log(counter, 136)
+    //console.log(counter, 136)
     this.setState({ InsutancesList: InsurancesListFinal.slice(0, counter) });
-    console.log('entrooooooooooooooooo',138, event.nativeEvent.layout.height);
+    //console.log('entrooooooooooooooooo',138, event.nativeEvent.layout.height);
   }
 
   handleNotification = notification => {
     const { origin } = notification;
     const { id, subject, created_at, client_id, uuid } = notification.data;
-    console.log('entro', 144);
+    //console.log('entro', 144);
     if (origin === 'selected') {
       const navigateAction = StackActions.reset({
         index: 1,
@@ -177,14 +175,13 @@ console.log(counter, 136)
             myPoliciesObj: result
           },
           () => {
-            console.log(this.state.myPolicies, 179)
+            //console.log(this.state.myPolicies, 179)
             //this.getCompanyPolicies(uuid, result.data.length);
           }
         );
       })
       .catch(error => {
-        //alert(error);
-        console.error(error, 185)
+        Alert.alert('Atención !', error);
         this.setState({ loadingMyPolicies: false });
       });
   }
@@ -205,8 +202,7 @@ console.log(counter, 136)
         );
       })
       .catch(error => {
-        //alert(error);
-        console.error(error, 207)
+        Alert.alert('Atención !', error);
         this.setState({ loadingMyPolicies: false });
       });
   }
@@ -367,8 +363,9 @@ console.log(counter, 136)
                                         uri: myPoliciesObj[0].icon
                                       }}
                                       style={{
-                                        height: 65,
-                                        width: 65,
+                                        borderRadius: 5,
+                                        height: 200,
+                                        width: 200,
                                         alignSelf: 'center'
                                       }}
                                     />

@@ -94,8 +94,7 @@ class Claim extends Component {
         this.props.navigation.goBack();
       })
       .catch(error => {
-        //alert(error);
-        console.error(error)
+        Alert.alert('Atención !', error);
         this.setState({ isLoading: false });
       });
   }

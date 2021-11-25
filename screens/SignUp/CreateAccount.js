@@ -9,7 +9,8 @@ import {
   Picker,
   Keyboard,
   Dimensions,
-  Platform
+  Platform,
+  Alert
 } from 'react-native';
 import { Text, Divider } from 'react-native-elements';
 import RNPickerSelect from 'react-native-picker-select';
@@ -158,8 +159,7 @@ class CreateAccount extends React.Component {
         alert(result.msg);
         this.props.navigation.navigate('SignIn');
       } catch (error) {
-        alert(error);
-        console.error(error)
+        Alert.alert('Atención !', error);
         this.setState({ loadingBtn: false });
       }
     } else {

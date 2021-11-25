@@ -122,8 +122,7 @@ class updateMethod extends Component {
         );
       })
       .catch(error => {
-        //alert(error);
-        console.error(error)
+        Alert.alert('Atención !', error);
         this.setState({ isLoading: false });
       });
   }

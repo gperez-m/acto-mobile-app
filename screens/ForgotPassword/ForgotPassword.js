@@ -61,8 +61,7 @@ class ForgotPassword extends React.Component {
           this.props.navigation.navigate('SignIn');
         })
         .catch(error => {
-          //alert(error);
-          console.log(error)
+          Alert.alert('Atención !', error);
           this.setState({ loadingBtn: false });
         });
     }

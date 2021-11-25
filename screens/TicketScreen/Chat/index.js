@@ -69,8 +69,7 @@ class Chat extends Component {
         console.log(result);
       })
       .catch(error => {
-        //Alert(error);
-        console.error(error)
+        Alert.alert('Atención !', error);
         this.setState({ isLoading: false });
       });
   }
@@ -100,8 +99,7 @@ class Chat extends Component {
         this.getComments();
       })
       .catch(error => {
-        //alert(error);
-        console.error(error)
+        Alert.alert('Atención !', error);
         this.setState({ isLoadingComment: false });
       });
   }
