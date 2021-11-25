@@ -606,7 +606,7 @@ class policies extends React.Component {
                   contentContainerStyle={{ paddingBottom: 50 }}
                   data={VoluntaryList}
                   renderItem={({ index, item }) => (
-                    <View key={item.id} style={Style.flatListView}>
+                    <View key={index} style={Style.flatListView}>
                       <Card key={item.id} containerStyle={[Style.flatCardItem, { padding: 0 }]}>
                         <View>
                           <View style={{ justifyContent: 'flex-end', flex: 1, padding: 15 }}>

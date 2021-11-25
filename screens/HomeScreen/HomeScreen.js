@@ -219,7 +219,7 @@ class HomeScreen extends React.Component {
       InsurancesListFinal
     } = this.state;
 
-    console.log('producto',224, myPoliciesObj);
+    // console.log('producto',224, myPoliciesObj);
     return (
       <View style={styles.container}>
         <View style={Style.containerCardParent}>
