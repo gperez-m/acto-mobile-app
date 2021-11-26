@@ -480,7 +480,7 @@ class CreateAccount extends React.Component {
               </View>
               <View style={Style.fullWidth}>
                 <TransparentButton
-                  text="Login"
+                  text="Regresar"
                   loading={false}
                   onPress={() => this.props.navigation.navigate('AuthLoading')}
                 />
