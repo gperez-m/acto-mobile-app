@@ -28,7 +28,7 @@
             "color": "#ffffff"
         },
         "ios": {
-            "buildNumber": "3",
+            "buildNumber": "4",
             "supportsTablet": false,
             "bundleIdentifier": "com.acto.seguros.colectivos"
         },
