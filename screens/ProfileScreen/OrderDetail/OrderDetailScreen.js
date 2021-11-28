@@ -7,7 +7,8 @@ import {
   ScrollView,
   Share,
   BackHandler,
-  TouchableOpacity
+  TouchableOpacity,
+  Alert
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { WebView } from 'react-native-webview';

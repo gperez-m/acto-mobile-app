@@ -56,7 +56,7 @@ const style = StyleSheet.create({
   backgroundLogin: {
     flex: 1,
     width: null,
-    height: null
+    height: null,
   },
   overlay: {
     backgroundColor: 'rgba(255,0,0,0.5)'

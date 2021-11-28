@@ -7,6 +7,7 @@ import {
   View,
   Image,
   FlatList,
+  Alert,
   ActivityIndicator
 } from 'react-native';
 import NumberFormat from 'react-number-format';

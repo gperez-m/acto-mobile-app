@@ -9,13 +9,14 @@ import {
   Picker,
   Keyboard,
   Dimensions,
-  Platform
+  Platform,
+  Alert
 } from 'react-native';
 import { Text, Divider } from 'react-native-elements';
 import RNPickerSelect from 'react-native-picker-select';
 import { TextInputMask } from 'react-native-masked-text';
 import { PrimaryButton } from '../../components/Buttons/PrimaryButton';
-import { TransparentButton } from '../../components/Buttons/TransparentButton';
+// import { TransparentButton } from '../../components/Buttons/TransparentButton';
 import TextField from '../../components/Inputs/TextField';
 import { http, Token } from '../../networking/ApiClient';
 import Colors from '../../constants/Colors';
@@ -53,7 +54,7 @@ class CreateAccount extends React.Component {
   }
 
   static navigationOptions = {
-    title: 'Sign up'
+    title: 'Sign up',
   };
 
   async _createAccountAsync() {
@@ -475,13 +476,6 @@ class CreateAccount extends React.Component {
                     marginTop: 3
                   }}
                   ref={ref => (this.phoneField = ref)}
-                />
-              </View>
-              <View style={Style.fullWidth}>
-                <TransparentButton
-                  text="Login"
-                  loading={false}
-                  onPress={() => this.props.navigation.navigate('AuthLoading')}
                 />
               </View>
             </ScrollView>
