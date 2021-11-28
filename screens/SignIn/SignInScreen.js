@@ -71,7 +71,7 @@ class SignInScreen extends React.Component {
           await AsyncStorage.setItem('token', result.access_token);
           await AsyncStorage.setItem('uuid', result.user.uuid);
           await AsyncStorage.setItem('company_uuid', result.user.company.uuid);
-          await AsyncStorage.setItem('company_logo', result.user.company.photo_url);
+          await AsyncStorage.setItem('company_logo', result.user.company.photo_url || '');
           this.props.navigation.navigate('App');
         } else if(result.user) {
           alert('El usuario ingresado no cuenta con los permisos suficientes');
