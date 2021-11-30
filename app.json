@@ -34,7 +34,8 @@
         },
         "android": {
             "package": "com.acto.seguros.colectivos",
-            "versionCode": 0
+            "versionCode": 0,
+            "permissions": []
         },
         "description": ""
     }

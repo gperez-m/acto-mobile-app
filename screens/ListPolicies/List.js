@@ -37,7 +37,7 @@ class List extends React.Component {
             loadingInsurance: false,
             InsurancesList: result.data
           },
-          () => console.log(this.state.InsutancesList, 39)
+          () => console.log(this.state.InsurancesList, 39)
         );
       })
       .catch(error => {

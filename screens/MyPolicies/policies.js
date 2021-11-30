@@ -471,8 +471,8 @@ class policies extends React.Component {
                                 </Text>
                               </View>
                             </View>
-                            {item.product.insurance_specs.map(l => (
-                              <View key={l.id} style={{ marginTop: 10, marginLeft: 10 }}>
+                            {item.product.insurance_specs.map(l, i => (
+                              <View key={i} style={{ marginTop: 10, marginLeft: 10 }}>
                                 <View class={Style.listRow}>
                                   <View
                                     style={{
