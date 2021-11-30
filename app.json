@@ -28,13 +28,14 @@
             "color": "#ffffff"
         },
         "ios": {
-            "buildNumber": "4",
+            "buildNumber": "5",
             "supportsTablet": false,
             "bundleIdentifier": "com.acto.seguros.colectivos"
         },
         "android": {
             "package": "com.acto.seguros.colectivos",
-            "versionCode": 0
+            "versionCode": 0,
+            "permissions": []
         },
         "description": ""
     }
