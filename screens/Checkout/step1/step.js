@@ -265,7 +265,6 @@ const step = props => {
                   placeholder={{}}
                   items={props.states}
                   onValueChange={value => {
-                    console.log(value);
                     setFieldValue('state', value);
                   }}
                 />

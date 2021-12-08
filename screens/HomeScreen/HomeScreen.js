@@ -57,7 +57,6 @@ class HomeScreen extends React.Component {
     const tokenExpo = await AsyncStorage.getItem('expoToken');
     // console.log(`---------${Math.round(Dimensions.get('window').height)}---------`, 59);
     this.setState({ company_logo: company });
-    // console.log(`client/${uuid}/products/voluntary`, 60)
     http
       .get(`client/${uuid}/products/voluntary`)
       .then(result => {
@@ -66,14 +65,12 @@ class HomeScreen extends React.Component {
           // InsutancesList: result.data.slice(0, 3)
           InsurancesListFinal: result.data
         });
-        // console.log('----------- compoenet -------',69, componentHeight);
       })
       .catch(error => {
         Alert.alert('Atención !', error);
         this.setState({ loadingInsurance: false });
       });
     this.getVoluntaryPolicies(uuid);
-    // console.log('aqui', 77, tokenExpo);
     if (tokenExpo != null || tokenExpo != undefined) {
     } else {
       this.registerForPushNotificationsAsync();
@@ -132,15 +129,12 @@ class HomeScreen extends React.Component {
         counter += 1;
       }
     });
-    //console.log(counter, 136)
     this.setState({ InsutancesList: InsurancesListFinal.slice(0, counter) });
-    //console.log('entrooooooooooooooooo',138, event.nativeEvent.layout.height);
   }
 
   handleNotification = notification => {
     const { origin } = notification;
     const { id, subject, created_at, client_id, uuid } = notification.data;
-    //console.log('entro', 144);
     if (origin === 'selected') {
       const navigateAction = StackActions.reset({
         index: 1,
@@ -218,8 +212,6 @@ class HomeScreen extends React.Component {
       loadingNotification,
       InsurancesListFinal
     } = this.state;
-
-    //console.log('producto',224, myPoliciesObj);
     return (
       <View style={styles.container}>
         <View style={Style.containerCardParent}>

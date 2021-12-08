@@ -287,7 +287,6 @@ class policies extends React.Component {
       })
       .catch(error => {
         Alert.alert('Atención !', error);
-        console.log('--------------ERROR----------', error);
         this.setState({ loadingVoluntary: false });
         this.setState({ loading: false });
       });

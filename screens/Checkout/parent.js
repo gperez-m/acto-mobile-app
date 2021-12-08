@@ -135,7 +135,6 @@ class parent extends React.Component {
       publishableKey: 'pk_test_9pTXH6NIFb0D9UuxK1vh1dVa005aGrSsra'
     });
     */
-    // console.log('entro ', init);
 
     const uuid = await AsyncStorage.getItem('uuid');
     this.props.navigation.setParams({ handleBack: this.handleBack });
@@ -165,7 +164,6 @@ class parent extends React.Component {
   tokenizeCard = card =>
     new Promise(async (resolve, reject) => {
       try {
-        console.log(JSON.stringify({ card }));
         this.setState({ loadingToken: true });
         const tokenRes = await fetch('https://api.conekta.io/tokens', {
           method: 'POST',
@@ -188,7 +186,6 @@ class parent extends React.Component {
     });
 
   completeStepOne(values) {
-    console.log(values);
     this.scroll.scrollTo({ x: 0, y: 0, animated: false });
     this.setState({ profile: values, currentStep: 2 });
   }
@@ -229,7 +226,6 @@ class parent extends React.Component {
         };
         token = await stripe.createToken({ card });
         // token = await Stripe.createTokenWithCardAsync(card);
-        console.log('token', token);
         if (token != null && token.error == null) {
           this.setState({
             token: token.id,
@@ -321,7 +317,6 @@ class parent extends React.Component {
           this.setState({ loadingBtn: false });
         });
     } else {
-      console.log();
       http
         .post('client/subscriptions', formData)
         .then(result => {
@@ -347,7 +342,6 @@ class parent extends React.Component {
   }
 
   changelines() {
-    console.log('entro');
     const { insurance } = this.props.navigation.state.params;
     const { linesDescription } = this.state;
     if (insurance.description != null) {
