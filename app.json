@@ -34,7 +34,8 @@
         },
         "android": {
             "package": "com.acto.seguros",
-            "versionCode": 0
+            "versionCode": 0,
+            "pemissions": []
         },
         "description": ""
     }
