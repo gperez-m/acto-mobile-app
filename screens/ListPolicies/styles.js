@@ -40,7 +40,7 @@ const style = StyleSheet.create({
   },
   cardItemName: {
     textAlign: 'center',
-    marginTop: 10,
+    marginTop: 5,
     fontWeight: '500'
   },
   cardItemDescription: {

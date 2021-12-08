@@ -100,7 +100,7 @@ class List extends React.Component {
                           style={{ height: 100, width: 100, alignSelf: 'center' }}
                         />
                       </View>
-                      <Text allowFontScaling={false} numberOfLines={2} style={Style.cardItemName}>
+                      <Text allowFontScaling={false} numberOfLines={1} style={Style.cardItemName}>
                         {item.custom_name != null ? item.custom_name : item.product.name}
                       </Text>
                       <Text
