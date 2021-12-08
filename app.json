@@ -28,7 +28,7 @@
             "color": "#ffffff"
         },
         "ios": {
-            "buildNumber": "16",
+            "buildNumber": "17",
             "supportsTablet": false,
             "bundleIdentifier": "com.acto.seguros"
         },
