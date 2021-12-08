@@ -61,10 +61,7 @@ export const http = (() => {
       return evaluateResponse(response);
     },
     async get(url, config = {}, params = {}) {
-      console.log('GET-Provider');
-      console.log(url, config, params);
       const token = await AsyncStorage.getItem('token');
-      console.log(token);
       config.url = url;
       const response = await fetch(
         `${apiUrl}/${url}?${queryString.stringify(params)}`,
