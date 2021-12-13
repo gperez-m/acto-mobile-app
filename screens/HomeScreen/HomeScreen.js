@@ -349,7 +349,7 @@ class HomeScreen extends React.Component {
                                   )}
                                   <View
                                     style={{
-                                      marginTop: 20
+                                      marginTop: 20,
                                     }}>
                                     <Image
                                       source={{
@@ -357,8 +357,8 @@ class HomeScreen extends React.Component {
                                       }}
                                       style={{
                                         borderRadius: 5,
-                                        height: 200,
-                                        width: 200,
+                                        height: Dimensions.get('window').height * .2,
+                                        width: Dimensions.get('window').width * .3,
                                         alignSelf: 'center'
                                       }}
                                     />
