@@ -68,7 +68,6 @@ class form extends React.Component {
   }
 
   onChangeCheckbox() {
-    console.log('entro');
     this.setState({ showPassword: !this.state.showPassword });
   }
 

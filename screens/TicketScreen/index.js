@@ -111,7 +111,6 @@ class Tickets extends Component {
 
   renderList() {
     const { list } = this.state;
-    console.log(list);
     if (list.length <= 0) {
       return (
         <View style={Style.container}>

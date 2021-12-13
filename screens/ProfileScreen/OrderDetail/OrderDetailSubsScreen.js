@@ -128,9 +128,6 @@ class OrderDetailSubsScreen extends React.Component {
     http
       .get(`subscriptions/${orderId}`)
       .then(result => {
-        console.log('------------------------ DETALLE -------------------');
-        console.log('ORDER DETAIL SUBS:');
-        console.log(result);
         this.setState({
           loadingOrder: false,
           order: result
@@ -150,9 +147,6 @@ class OrderDetailSubsScreen extends React.Component {
     http
       .get(`subscriptions/${orderId}`)
       .then(result => {
-        console.log('------------------------ DETALLE -------------------');
-        console.log('ORDER DETAIL SUBS:');
-        console.log(result);
         this.setState({
           loadingOrder: false,
           order: result

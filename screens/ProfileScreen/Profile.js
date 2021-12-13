@@ -170,8 +170,7 @@ class Profile extends React.Component {
           {
             loadingHistory: false,
             myPolicies: result.data
-          },
-          () => console.log(this.state.myPolicies)
+          }
         );
       })
       .catch(error => {
@@ -188,8 +187,7 @@ class Profile extends React.Component {
           {
             loadingSuscrib: false,
             subscription: result.data
-          },
-          () => console.log(this.state.subscription)
+          }
         );
       })
       .catch(error => {
@@ -203,7 +201,6 @@ class Profile extends React.Component {
   }
 
   onClickNavigation() {
-    console.log(this.props);
     this.props.navigation;
   }
 

@@ -54,12 +54,10 @@ class Claim extends Component {
     this.setState({ updateData });
 
     http.get('client/claims-subject').then(res => {
-      console.log(res, 57)
       this.setState({
         dropItems: [{ subject: 'Selecciona una opción', id: 0 }, ...res],
         loadingItems: false
       });
-      console.log(res);
     });
   }
 
@@ -77,8 +75,6 @@ class Claim extends Component {
       company_uuid,
       subject_id: values.subject_id
     };
-
-    console.log(formData);
 
     http
       .post('client/claims', formData)
@@ -215,7 +211,7 @@ Claim.navigationOptions = {
         justifyContent: 'center',
         alignItems: 'center'
       }}>
-      <Image source={alarm} style={{ width: 25, height: 25 }} />
+      <Image source={alarm} style={{ width: 35, height: 35 }} />
       <Text allowFontScaling={false} style={{ color: 'white', fontSize: 17, paddingLeft: 5 }}>
         Asistencia
       </Text>

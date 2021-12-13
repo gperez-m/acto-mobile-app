@@ -138,7 +138,6 @@ class updateMethod extends Component {
       cvc: values.cvc
     };
     token = await stripe.createToken({ card });
-    console.log('token', token);
     if (token != null) {
       this.updatePaymentMethod(token.id);
     } else {

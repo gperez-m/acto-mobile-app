@@ -136,14 +136,11 @@ class detail extends React.Component {
     http
       .get(`client/${uuid}/products/${policyId}`)
       .then(result => {
-        console.log('--------------DETAIL--------------');
-        console.log(result, 140);
         this.setState(
           {
             loadingInsurance: false,
             policy: result
-          },
-          () => console.log(this.state.InsutancesList)
+          }
         );
       })
       .catch(error => {
@@ -161,7 +158,6 @@ class detail extends React.Component {
   }
 
   onClick(e, policy) {
-    console.log(e);
     this.props.navigation.navigate('Checkout', {
       insurance: policy,
       type: e

@@ -89,7 +89,6 @@ class policies extends React.Component {
     Alert.alert('ATENCIÓN', msg, [{ text: 'OK', onPress: () => console.log('OK Pressed') }], {
       cancelable: false
     });
-
     http
       .get(`client/${uuid}/products/company?limit=100000`)
       .then(result => {
@@ -97,8 +96,7 @@ class policies extends React.Component {
           {
             loading: false,
             InsurancesList: result.data
-          },
-          () => console.log(this.state.InsutancesList)
+          }
         );
       })
       .catch(error => {
@@ -120,8 +118,7 @@ class policies extends React.Component {
           {
             loading: false,
             InsurancesList: result.data
-          },
-          () => console.log(this.state.InsutancesList)
+          }
         );
       })
       .catch(error => {
@@ -137,7 +134,7 @@ class policies extends React.Component {
     // this.getData();
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.getData();
     BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
   }
@@ -287,8 +284,7 @@ class policies extends React.Component {
         );
       })
       .catch(error => {
-        // alert(error);
-        console.log('--------------ERROR----------', error);
+        Alert.alert('Error !', error)
         this.setState({ loadingVoluntary: false });
         this.setState({ loading: false });
       });
@@ -354,6 +350,7 @@ class policies extends React.Component {
       loadingDownload,
       loadingVoluntary
     } = this.state;
+
     return showWebView ? (
       <View style={{ flex: 1 }}>
         <View
@@ -407,7 +404,7 @@ class policies extends React.Component {
         />
       </View>
     ) : (
-      <View key={0} style={Style.container}>
+      <View style={Style.container}>
         {!loading ? (
           <ScrollView showsVerticalScrollIndicator={false}>
             <View>
@@ -471,7 +468,7 @@ class policies extends React.Component {
                                 </Text>
                               </View>
                             </View>
-                            {item.product.insurance_specs.map(l, i => (
+                            {item.product.insurance_specs.map((l, i) => (
                               <View key={i} style={{ marginTop: 10, marginLeft: 10 }}>
                                 <View class={Style.listRow}>
                                   <View

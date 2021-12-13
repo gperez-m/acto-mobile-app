@@ -66,7 +66,6 @@ class Chat extends Component {
           listMsg: result.claim_comment
         });
         this.props.navigation.setParams({ client_id: null, name: null, uuid: null });
-        console.log(result);
       })
       .catch(error => {
         Alert.alert('Atención !', error);

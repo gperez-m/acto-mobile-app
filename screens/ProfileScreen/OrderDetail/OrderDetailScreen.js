@@ -95,8 +95,6 @@ class OrderScreen extends React.Component {
     http
       .get(`client/${uuid}/${orderId}/order`)
       .then(result => {
-        console.log('ORDER DETAIL:');
-        console.log(result);
         this.setState({
           loadingOrder: false,
           order: result
