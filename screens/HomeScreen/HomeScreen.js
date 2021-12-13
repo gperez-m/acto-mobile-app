@@ -577,7 +577,7 @@ class HomeScreen extends React.Component {
                     justifyContent: 'center',
                     alignItems: 'flex-end'
                   }}>
-                  <Image source={sirena} style={{ width: 50, height: 50, marginRight: 25 }} />
+                  <Image source={sirena} style={{ width: 60, height: 60, marginRight: 25 }} />
                 </View>
               </View>
             </Card>

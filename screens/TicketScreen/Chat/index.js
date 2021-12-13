@@ -258,7 +258,7 @@ Chat.navigationOptions = {
       <Image
         tintColor="white"
         source={alarm}
-        style={{ width: 25, height: 25, tintColor: 'white' }}
+        style={{ width: 30, height: 30, tintColor: 'white' }}
       />
       <Text allowFontScaling={false} style={{ color: 'white', fontSize: 17, paddingLeft: 5 }}>
         Asistencia
