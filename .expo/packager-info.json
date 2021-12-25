@@ -1,10 +1,10 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": null,
-  "packagerPort": 19000,
+  "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": "https://9e-u58.anonymous.acto-mobile-app.exp.direct",
-  "packagerNgrokUrl": "https://packager.9e-u58.anonymous.acto-mobile-app.exp.direct",
-  "ngrokPid": 28758,
+  "expoServerNgrokUrl": null,
+  "packagerNgrokUrl": null,
+  "ngrokPid": null,
   "webpackServerPort": null
 }
