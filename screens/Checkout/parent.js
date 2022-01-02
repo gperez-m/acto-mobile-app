@@ -293,6 +293,7 @@ class parent extends React.Component {
       zip_code: profile.zip_code,
       token_card: paymentSelection == '1' || type == 'monthly' ? token : ''
     };
+    console.log(formData)
 
     if (type === 'anual') {
       http
@@ -317,6 +318,7 @@ class parent extends React.Component {
           this.setState({ loadingBtn: false });
         });
     } else {
+      console.log(formData)
       http
         .post('client/subscriptions', formData)
         .then(result => {
@@ -335,7 +337,7 @@ class parent extends React.Component {
         })
 
         .catch(error => {
-          Alert.alert('Atención !', error);
+          Alert.alert('Atención !!!', error);
           this.setState({ loadingBtn: false });
         });
     }
