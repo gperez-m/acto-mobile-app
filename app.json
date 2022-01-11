@@ -8,7 +8,7 @@
             "android",
             "web"
         ],
-        "version": "1.0.9",
+        "version": "1.0.0",
         "orientation": "portrait",
         "icon": "./assets/images/icon.png",
         "splash": {
@@ -28,13 +28,14 @@
             "color": "#ffffff"
         },
         "ios": {
-            "buildNumber": "1",
+            "buildNumber": "0",
             "supportsTablet": false,
             "bundleIdentifier": "com.acto.seguros"
         },
         "android": {
             "package": "com.acto.seguros",
-            "versionCode": 0
+            "versionCode": 1,
+            "permissions": []
         },
         "description": ""
     }
