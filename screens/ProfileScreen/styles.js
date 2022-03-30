@@ -11,7 +11,8 @@ const style = StyleSheet.create({
     //flex:1
   },
   containerHistory: {
-    marginTop: 25
+    marginTop: 25,
+    display: 'none'
   },
   cardInformation: {
     flexDirection: 'row'
