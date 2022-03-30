@@ -132,7 +132,6 @@ class detail extends React.Component {
     const { policyId } = this.props.navigation.state.params;
     const uuid = await AsyncStorage.getItem('uuid');
     this.props.navigation.setParams({ handleBack: this.handleBack });
-
     http
       .get(`client/${uuid}/products/${policyId}`)
       .then(result => {
@@ -185,7 +184,6 @@ class detail extends React.Component {
             {
               // message: "test message",
               title: 'Archivo',
-              // Picture of Ashton Kutcher
               url: uri
             },
             {

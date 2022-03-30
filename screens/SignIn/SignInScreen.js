@@ -79,6 +79,7 @@ class SignInScreen extends React.Component {
           alert('Verique los datos ingresados');
         }
       } catch (error) {
+        // console.log(error);
         Alert.alert('Atención !', error);
         this.setState({ loadingBtn: false });
       }

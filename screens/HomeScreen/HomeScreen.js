@@ -226,10 +226,10 @@ class HomeScreen extends React.Component {
                         <Image
                           resizeMode="contain"
                           source={{ uri: company_logo }}
-                          style={Style.imgSection2}
+                          style={[Style.imgSection2, {borderRadius: 16}]}
                         />
                       ) : (
-                        <Image source={userlogo} style={Style.imgSection1} />
+                        <Image source={userlogo} style={[Style.imgSection1, {borderRadius: 16}]} />
                       )}
                       <Text allowFontScaling={false} style={[Style.title, Style.ml5]}>
                         Mi perfil
