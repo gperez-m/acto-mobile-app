@@ -23,7 +23,7 @@ import { PrimaryButton } from '../../components/Buttons/PrimaryButton';
 import Colors from '../../constants/Colors';
 import Style from './styles';
 
-const stripe = require('stripe-client')('pk_test_9pTXH6NIFb0D9UuxK1vh1dVa005aGrSsra');
+const stripe = require('stripe-client')('pk_live_kZA8i9MoARvTSvxIfNMZLzUS00LqMSoao7');
 
 const userLogo = require('../../assets/images/icons/user.png');
 const ticketLogo = require('../../assets/images/tickets.png');
@@ -138,7 +138,7 @@ class updateMethod extends Component {
       cvc: values.cvc
     };
     token = await stripe.createToken({ card });
-    console.log('token', token);
+    console.log(token, 141);
     if (token != null) {
       this.updatePaymentMethod(token.id);
     } else {
